@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "poet-plugin"
-version = "0.1.1"
+version = "0.1.2"
 description = "A Poetry plugin to enable exclusivity between groups"
 authors = ["Idan Tene <idan.tene@gmail.com>"]
 license = "MIT"
