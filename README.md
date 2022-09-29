@@ -4,7 +4,7 @@ Poet stands for **Po**etry **E**xclusivity **T**oggle (or some other excuse, I d
 `poet` seemed short and sweet since this plugin changes the internal poetry package during runtime).
 
 ## Installation
-Simply add this plugin as a dependency with `pip install poet-plugin`.
+Simply add this plugin as a dependency with `poetry add poet-plugin` or `poetry self add poet-plugin`.
 
 ## Usage
 When running `poetry install`, the various options (`--only`, `--without`) are parsed to ensure the dependency resolver 
