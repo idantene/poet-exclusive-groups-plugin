@@ -22,15 +22,9 @@ class PEGPlugin(ApplicationPlugin):
 
         package: ProjectPackage = installer._package  # noqa
 
-        available_groups = set(package.dependency_group_names(include_optional=True))
-        desired_groups = available_groups.copy()
-        if self.io.input.option('only-root') is True:
-            package = package.with_dependency_groups(['main'], only=True)
-        if self.io.input.option('no-dev') is True:
-            package = package.without_dependency_groups(['dev'])
         if self.io.input.option('only'):
             package = package.with_dependency_groups(self.io.input.option('only'), only=True)
         if self.io.input.option('without'):
             package = package.without_dependency_groups(self.io.input.option('without'))
 
-        command.installer._package = package.with_dependency_groups(desired_groups)
+        command.installer._package = package
