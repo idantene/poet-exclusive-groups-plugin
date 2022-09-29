@@ -21,10 +21,12 @@ class PEGPlugin(ApplicationPlugin):
         installer = command.installer
 
         package: ProjectPackage = installer._package  # noqa
+        only_flag = self.io.input.option('only') if self.io.input.has_option('only') else None
+        without_flag = self.io.input.option('without') if self.io.input.has_option('without') else None
 
-        if self.io.input.option('only'):
-            package = package.with_dependency_groups(self.io.input.option('only'), only=True)
-        if self.io.input.option('without'):
-            package = package.without_dependency_groups(self.io.input.option('without'))
+        if only_flag:
+            package = package.with_dependency_groups(only_flag, only=True)
+        if without_flag:
+            package = package.without_dependency_groups(without_flag)
 
         command.installer._package = package
